@@ -1,0 +1,81 @@
+<html>
+<head>
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,500,700" rel="stylesheet">
+</head>
+<body>
+	<div class = 'container'>
+		<div class = 'header__parent'>
+	    <h1>{{ layout.name }}</h1>
+			<figure class="creator">
+				<img src="{{ url_for('static', filename='blank_user.gif') }}">
+				<figcaption>Author: {{author.name}}</figcaption>
+			</figure>
+  	</div>
+    <div class = 'createbuilding'>
+			<img class="create__icon" src="https://cdn0.iconfinder.com/data/icons/large-black-icons/256/Add_plus_new_user_green_page.png" alt="create icon">
+    	<a href = '{{url_for('newBuildingItem', layout_id = layout.id) }}'>Create New Building</a>
+    </div>
+		<div class ='createbuilding'>
+			<img class="create__icon" src="https://cdn0.iconfinder.com/data/icons/layout-and-location/24/Untitled-2-01-128.png" alt="back icon">
+			<a href = '{{url_for('cocLayout')}}'>Back to Home Page</a>
+		</div>
+
+		<div class = 'flash'>
+				      {% with messages = get_flashed_messages() %}
+		      {% if messages %}
+
+		        <ul>
+		        {% for message in messages %}
+		            <li> <strong> {{ message }} </strong> </li>
+		        {% endfor %}
+		        </ul>
+		        {% endif %}
+		    {% endwith %}
+
+		</div>
+
+			{% for i in items if i.category=="defense" %}
+			  <div class = 'property_defense'>
+					<span class = 'name'>
+						<p>{{i.name}}</p><br><br>
+						<a href='{{url_for('editBuildingItem',layout_id = layout.id, building_id=i.id)}}' >Edit</a>
+						<a href='{{url_for('deleteBuildingItem', layout_id = layout.id, building_id=i.id)}}' >Delete</a>
+					</span>
+					<span class = 'level'><p>Level: {{i.level}}</p></span>
+					<span class = 'category'><p>Category: {{i.category}}</p></span>
+					<span class = 'description'><p>Description</p><p>{{i.description}}</p>
+				</div>
+		  {% endfor %}
+			{% for i in items if i.category=="trap" %}
+				<div class = 'property_trap'>
+					<span class = 'name'>
+						<p>{{i.name}}</p><br><br>
+						<a href='{{url_for('editBuildingItem',layout_id = layout.id, building_id=i.id)}}' >Edit</a>
+						<a href='{{url_for('deleteBuildingItem', layout_id = layout.id, building_id=i.id)}}' >Delete</a>
+					</span>
+					<span class = 'level'><p>Level: {{i.level}}</p></span>
+					<span class = 'category'><p>Category: {{i.category}}</p></span>
+					<span class = 'description'><p>Description</p><p>{{i.description}}</p>
+				</div>
+			{% endfor %}
+			{% for i in items if i.category=="resource" %}
+				<div class = 'property_resource'>
+					<span class = 'name'>
+						<p>{{i.name}}</p><br><br>
+						<a href='{{url_for('editBuildingItem',layout_id = layout.id, building_id=i.id)}}' >Edit</a>
+						<a href='{{url_for('deleteBuildingItem', layout_id = layout.id, building_id=i.id)}}' >Delete</a>
+					</span>
+					<span class = 'level'><p>Level: {{i.level}}</p></span>
+					<span class = 'category'><p>Category: {{i.category}}</p></span>
+					<span class = 'description'><p>Description</p><p>{{i.description}}</p>
+				</div>
+			{% endfor %}
+   </div>
+
+</body>
+
+
+
+
+</html>

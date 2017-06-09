@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>
+      Clash of Clan Building Catalog
+    </title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+      <header class="header__parent">
+        <div class="header__logo">
+          <img class="udacity__logo" src="https://upload.wikimedia.org/wikipedia/en/5/59/Clash_of_Clans_Logo.png" alt="This is logo">
+        </div>
+        <div class="header__text">
+          <h1>
+            COC Building Catalog
+          </h1>
+          <p>
+            Alpha Version
+          </p>
+          <div class = 'user__login'>
+            <img class="create__icon" src="http://epg.eng.ox.ac.uk/sites/all/themes/epgtheme_responsive/images/user-icon-white.png" alt="log in icon">
+            <a href='{{url_for('showLogin')}}' >Log IN</a>
+          </div>
+        </div>
+      </header>
+    <main>
+      <div class="image__main">
+        <img class="image__1" src="http://cdn.idigitaltimes.com/sites/idigitaltimes.com/files/2016/05/04/clash-clans-may-update-released-supercell-gives-appeases-players-faster-training.jpg" alt="This is main image">
+      </div>
+      <div class="featured__work">
+        <h2>
+          Base Layout
+        </h2>
+      </div>
+      <div class = 'createbuilding'>
+        <img class="create__icon" src="https://cdn0.iconfinder.com/data/icons/large-black-icons/256/Add_plus_new_user_green_page.png" alt="create icon">
+        <a href = '{{url_for('newLayout')}}'>Create New Base</a>
+      </div>
+      <div class = 'flash'>
+                {% with messages = get_flashed_messages() %}
+            {% if messages %}
+
+              <ul>
+              {% for message in messages %}
+                  <li> <strong> {{ message }} </strong> </li>
+              {% endfor %}
+              </ul>
+              {% endif %}
+          {% endwith %}
+      </div>
+	  {% for i in layout %}
+      <section class="category__defense">
+          <img class="defense__figure" src="https://www.3starsclanwars.com/wp-content/uploads/2015/10/Town_Hall10.png" alt="defense figure">
+           <h2>
+             <a href='{{url_for('cocBuilding',layout_id = i.id)}}' >{{i.name}}</a>
+           </h2>
+           <!--<a href='{{url_for('cocBuilding',layout_id = i.id)}}' >Detail</a>-->
+      </section>
+      {% endfor %}
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+<head>
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,500,700" rel="stylesheet">
+</head>
+
+<body>
+<div class = 'container'>
+	<div class='edit__header'>
+			<h1>Create New Defensive Building</h1>
+	</div>
+
+<div class = 'edit__form'>
+	<form action="{{ url_for('newBuildingItem', layout_id=layout_id )}}" method = 'post'>
+
+		<dl>
+			<dt>Name:</dt>
+				<dd><input type ='text' size='30' name='name'></dd>
+			<dt>Level:</dt>
+				<dd><input type = 'text' size = '30' name='level'></dd>
+			<dt>Description:</dt>
+				<dd><textarea name = 'description' rows='5' cols='32'></textarea></dd>
+			<dt>Category:</dt>
+				<label><input type = 'radio' name='category' value='defense'>Defense</label>
+				<label><input type = 'radio' name='category' value='trap'>Trap</label>
+				<label><input type = 'radio' name='category' value='resource'>Resource</label>
+		</dl>
+
+
+		<input type='submit' value='Create'>
+		<a href = '{{url_for('cocBuilding', layout_id = layout_id)}}' class='cancel__button'> Cancel </a>
+	</form>
+</div>
+</body>
+</html>

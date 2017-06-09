@@ -1,0 +1,29 @@
+<html>
+<head>
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,500,700" rel="stylesheet">
+</head>
+
+<body>
+<div class = 'container'>
+	<div class='edit__header'>
+		<h1> Edit Base Name </h1>
+	<div>
+
+	<div class='edit__form'>
+		<form action="{{ url_for('editLayout',layout_id = layout_id)}}" method = 'post'>
+
+		<dl>
+			<dt>Name:</dt>
+				<dd><input type ='text' size='30' name='name' placeholder = '{{item.name }}'></dd>
+		</dl>
+
+
+		<input type='submit' value='Edit'>
+
+		<a href = '{{url_for('cocLayout')}}' class='cancel__button'> Cancel </a>
+		</form>
+	</div>
+</div>
+</body>
+</html>
