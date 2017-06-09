@@ -26,6 +26,7 @@ Project 4 for Udacity's Full Stack Web Developer Nanodegree. This is an applicat
 3.Start the virtual machine.
 
 4.This project comes with a prebuilt data base for testing purposes. To build your own data base, please follow the steps below:
+  
   -Delete the prebuilt database called "cocbuildingwithuser.db"
   -Initial an empty databse using the following comment
   ```
