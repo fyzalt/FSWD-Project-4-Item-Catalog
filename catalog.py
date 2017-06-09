@@ -250,6 +250,8 @@ def editLayout(layout_id):
             editedLayout.name = request.form['name']
             flash('Layout Successfully Edited ')
             return redirect(url_for('cocLayout'))
+        else:
+            return redirect(url_for('cocLayout'))
     else:
         return render_template('editlayout.html', layout_id=layout_id, item=editedLayout)
 
