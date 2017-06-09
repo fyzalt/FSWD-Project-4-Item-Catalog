@@ -19,7 +19,7 @@ Project 4 for Udacity's Full Stack Web Developer Nanodegree. This is an applicat
 
 ### Preparation and Setup
 
-1.Install Virtual Box and Vagrant follow the instruction on this [link] (https://www.udacity.com/wiki/ud197/install-vagrant)
+1.Install Virtual Box and Vagrant follow the instruction on this [link](https://www.udacity.com/wiki/ud197/install-vagrant)
 
 2.Clone this repository and put it under the directory called "vagrant"
 
